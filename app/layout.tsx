@@ -1,11 +1,18 @@
+import { Roboto } from "next/font/google";
 type Props = {
   children: React.ReactNode;
 };
 
+const roboto = Roboto({
+  weight: ["300", "400", "700"],
+  style: ["italic", "normal"],
+});
 const layout = ({ children }: Props) => {
   return (
     <html>
-      <body>{children}</body>
+      <body className={roboto.className}>
+        <main style={{background: '#f5f8fe'}}>{children} </main>
+      </body>
     </html>
   );
 };

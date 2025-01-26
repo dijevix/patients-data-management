@@ -1,25 +1,13 @@
 "use client";
-import { PatientsRequestResponse } from "@/types/patients";
+import UserCard from "@/components/card";
+import { IPatients } from "@/types/patients";
 import { getUsersList } from "@/utils/services/patients";
 import { useEffect, useState } from "react";
-interface IUsers extends PatientsRequestResponse {
-  uuid: number;
-}
 
-const UserCard = (user: IUsers) => {
-  return (
-    <div key={user.uuid}>
-      <b style={{ fontSize: 40 }}>{user.uuid}</b>
-      <p>{user.description}</p>
-      <p>{user.website}</p>
-      <p>{user.name}</p>
-      <p>{user.avatar}</p>
-      <p>{user.id}</p>
-    </div>
-  );
-};
+import styles from './styles.module.css'
+
 const Patients = () => {
-  const [users, setUsers] = useState<IUsers[]>([]);
+  const [users, setUsers] = useState<IPatients[]>([]);
 
   const getAndSetUsers = async () => {
     const data = await getUsersList();
@@ -35,7 +23,7 @@ const Patients = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.cardsContainer}>
       {users.map((user) => {
         return <UserCard {...user} key={user.uuid} />;
       })}
