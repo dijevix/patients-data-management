@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import { Metadata } from "next";
 import NavBar from "@/components/navbar";
 import  '@/app/globals.css'
+import Footer from "@/components/footer";
 type Props = {
   children: React.ReactNode;
 };
@@ -20,7 +21,7 @@ const layout = ({ children }: Props) => {
       <body className={roboto.className}>
         <NavBar />
         <main className={styles.main_container}>{children} </main>
-        <footer>THIS IS THE FOOTHER</footer>
+        <Footer/>
       </body>
     </html>
   );

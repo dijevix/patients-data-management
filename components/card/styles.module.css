@@ -1,16 +1,22 @@
 .card_container {
   padding: 16px 8px;
-  box-shadow: 5px 7px 0px rgba(186, 204, 227, 255);
-  border: 2px solid #0044dd;
-  /* overflow: hidden; */
+  box-shadow: 7px 8px 0px  rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #0044dd;
+  border-left: 2px solid #0044dd;
   row-gap: 10px;
   display: flex;
   flex-direction: column;
-  /* max-height: 200px; */
   border-radius: 5px;
   background-color: #fff;
   position: relative;
   height: max-content;
+  transition: all ease-in-out .2s ;
+  cursor: pointer;
+}
+
+.card_container:hover{
+  box-shadow: 7px 8px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .card_avatar {
@@ -37,6 +43,7 @@
   font-weight: 700;
   line-height: 20px;
   font-size: 16px;
+  margin-top: 10px;
 }
 .card_date_title {
   font-weight: 300;
