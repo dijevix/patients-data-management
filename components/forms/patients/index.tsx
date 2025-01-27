@@ -1,11 +1,14 @@
-import CustomInput from "@/components/common/input";
-
-import styles from "./styles.module.css";
+// Third party
 import { Controller,  useForm } from "react-hook-form";
+// CustomComponents
+import CustomInput from "@/components/common/input";
 import HelperText from "@/components/common/helperText";
-import UploadFile from "@/components/common/uploadFile";
-import { IPatients } from "@/types/patients";
 import TextArea from "@/components/common/textArea";
+import UploadFile from "@/components/common/uploadFile";
+// types
+import { IPatients } from "@/types/patients";
+// Styles
+import styles from "./styles.module.css";
 
 interface Props {
   initialValues: IPatients;
@@ -86,7 +89,6 @@ const PatientsForm = ({
             <>
               <UploadFile
                 onChange={(e) => {
-                  console.log(e.target.files[0]);
                   const file = e.target.files[0];
                   const imageUrl = URL.createObjectURL(file);
                   field.onChange(imageUrl);

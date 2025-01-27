@@ -1,15 +1,18 @@
-// Types
-import { IPatients } from "@/types/patients";
-// Styles
-import styles from "./styles.module.css";
-
-import defaultUser from "@/public/user_4302027.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
+// Third party
+import Image from "next/image";
+// CustomComponents
 import PencilIcon from "../icons/pencil";
 import UpArrowIcon from "../icons/upArrow";
-import Image from "next/image";
 import Divider from "../common/divider";
+// Types
+import { IPatients } from "@/types/patients";
+// Public
+import defaultUser from "@/public/user_4302027.png";
+// Utils
 import { dateFormatter } from "@/utils/helper/format";
+// Styles
+import styles from "./styles.module.css";
 
 const UserCard = ({
   user,
@@ -19,20 +22,16 @@ const UserCard = ({
   onEdit: (data: IPatients) => void;
 }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const [imageSrc, setImageSrc] = useState(
-    !user?.avatar ? defaultUser.src : user?.avatar
-  );
+  const [imageSrc, setImageSrc] = useState(user?.avatar || defaultUser.src);
 
   // TODO : REMOVE USEEFFECT
   useEffect(() => {
     setImageSrc(user?.avatar);
   }, [user]);
 
-  const cardContainerRef = useRef<HTMLDivElement>(null)
-  const descriptionRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div ref={cardContainerRef} className={styles.card_container}>
+    <div  className={styles.card_container}>
       <div className={styles.card_header}>
         <Image
           alt="user avatar"
@@ -66,27 +65,22 @@ const UserCard = ({
           showDescription && styles.card_collapsed
         }`}
         onClick={() => {
-          setShowDescription(!showDescription)
+          setShowDescription(!showDescription);
         }}
       >
         <UpArrowIcon />
       </div>
 
       <div
-      ref={descriptionRef}
-        className={`${styles.card_description} ${
-          showDescription && styles.card_description_show
-        }`}
+        className={`${styles.card_description} ${showDescription && styles.card_description_show}`}
       >
         <h3 className={styles.subtitle}>Description</h3>
         <Divider />
-        <p className={`${styles.card_description_content} ${showDescription}`}>
-          {user.description}
-        </p>
+        <p className={`${styles.card_description_content} ${showDescription}`}>{user.description}</p>
         <h3 className={styles.subtitle}>Website</h3>
         <Divider />
-        <div className={`${styles.card_description} ${showDescription}`}>
-          <a href={user.website} target="blank">
+        <div>
+          <a href={user.website} target="_blank">
             Go there
           </a>
         </div>

@@ -1,8 +1,11 @@
+// Third party
 import { Roboto } from "next/font/google";
 import { Metadata } from "next";
+// Custom Components
 import NavBar from "@/components/navbar";
-import "@/app/globals.css";
 import Footer from "@/components/footer";
+// styles
+import "@/app/globals.css";
 import styles from "./styles.module.css";
 
 type Props = {
