@@ -5,16 +5,18 @@ import { Controller,  useForm } from "react-hook-form";
 import HelperText from "@/components/common/helperText";
 import UploadFile from "@/components/common/uploadFile";
 import { IPatients } from "@/types/patients";
+import TextArea from "@/components/common/textArea";
 
+interface Props {
+  initialValues: IPatients;
+  onCancel: VoidFunction;
+  onValid?: (data: IPatients) => void;
+}
 const PatientsForm = ({
   initialValues,
   onCancel,
   onValid,
-}: {
-  initialValues: IPatients;
-  onCancel: VoidFunction;
-  onValid?: (data: IPatients) => void;
-}) => {
+}: Props) => {
   const { handleSubmit, control } = useForm({
     defaultValues: initialValues,
     mode: "all",
@@ -52,7 +54,7 @@ const PatientsForm = ({
         render={({ field, fieldState: { error } }) => {
           return (
             <>
-              <CustomInput {...field} error={!!error}  placeholder="Type a description" />
+              <TextArea {...field} placeholder="Type a description" />
               <HelperText>{error?.message}</HelperText>
             </>
           );
