@@ -12,6 +12,7 @@
   height: max-content;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
+  animation: fade-in 0.2s ease-in-out;
 }
 
 .card_container:hover {
@@ -27,6 +28,8 @@
   display: flex;
   align-items: start;
   column-gap: 10px;
+  animation: opacity 0.4s ease-in-out;
+
 }
 
 .card_date {
@@ -41,7 +44,7 @@
   line-height: 20px;
   font-size: 16px;
   margin-top: 10px;
-  border-bottom:1px solid #0044dd ;
+  border-bottom: 1px solid #0044dd;
 }
 .card_date_title {
   font-weight: 300;
@@ -87,4 +90,26 @@
   font-weight: 400;
   font-size: 14px;
   margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.card_description_content{
+  animation: opacity 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translate(-20px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

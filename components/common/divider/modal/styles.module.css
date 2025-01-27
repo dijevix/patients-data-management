@@ -23,6 +23,16 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  animation: slide-up 0.3s ease-in-out;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .modal_title {
@@ -40,8 +50,8 @@
   top: 5px;
   right: 10px;
   cursor: pointer;
-  transition: ease-in-out .4s all;
+  transition: ease-in-out 0.4s all;
 }
 .modal_cancelContainer :hover {
-opacity: 0.5
+  opacity: 0.5;
 }

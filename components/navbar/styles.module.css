@@ -16,11 +16,10 @@
   font-weight: 400;
   line-height: 24px;
   font-size: 22px;
-  margin-left: 100px;
 }
 .navbar_title_container {
   display: flex;
-  row-gap: 20px;
+  row-gap: 30px;
   align-items: center;
 }
 
@@ -35,6 +34,7 @@
   cursor: pointer;
   height: 100%;
   width: 100%;
+  display: none;
 }
 
 .navbar_invite_users_container {
@@ -67,4 +67,10 @@
     border-radius: 5px;
     object-fit: cover;
     cursor: pointer;
+}
+
+@media  (min-width :540px){
+  .navbar_invite_users {
+    display:flex
+  }
 }

@@ -72,23 +72,14 @@ const UserCard = ({
           showDescription && styles.card_description_show
         }`}
       >
-        <Divider />
         <h3 className={styles.subtitle}>Description</h3>
         <Divider />
-        <p
-          className={`${styles.card_description} ${
-            showDescription && styles.card_description_show
-          }`}
-        >
+        <p className={`${styles.card_description_content} ${showDescription}`}>
           {user.description}
         </p>
         <h3 className={styles.subtitle}>Website</h3>
         <Divider />
-        <div
-          className={`${styles.card_description} ${
-            showDescription && styles.card_description_show
-          }`}
-        >
+        <div className={`${styles.card_description} ${showDescription}`}>
           <a href={user.website} target="blank">
             Go there
           </a>
