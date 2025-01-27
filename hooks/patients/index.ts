@@ -7,11 +7,10 @@ import { usePatientsRequest } from "../services/patients";
 
 
 export const usePatients = () => {
-  const { setUsers, users } = usePatientsRequest();
+  const { setUsers, users , isLoading} = usePatientsRequest();
 
   const [activeCard, setActiveCard] = useState<IPatients>(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
-
   const handleOnEdit = (user: IPatients) => {
     setIsOpenModal(true);
     setActiveCard(user);
@@ -39,5 +38,6 @@ export const usePatients = () => {
     activeCard,
     handleOnEdit,
     closeModal,
+    isLoading
   };
 };

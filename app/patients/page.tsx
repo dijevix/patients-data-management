@@ -10,14 +10,16 @@ import PatientsForm from "@/components/forms/patients";
 import { usePatients } from "@/hooks/patients";
 // Styles
 import styles from "./styles.module.css";
+import Loader from '@/components/common/loader';
 
 
 const Patients = () => {
   
-  const {activeCard , isOpenModal , handleOnEdit , onValidForm , users , closeModal  }  = usePatients()
+  const {activeCard , isOpenModal , handleOnEdit , onValidForm , users , closeModal , isLoading }  = usePatients()
 
   return (
     <>
+    {isLoading && <Loader />}
       <Modal isOpen={isOpenModal} onClose={closeModal}>
         <Modal.title>Manage Patient Information</Modal.title>
         <Divider />
