@@ -40,7 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 I have been wondering about using a state management like redux, recoil , jotai, zubstan .. etc. But I have not really found any need to add complicated logics to the components and pages since, the code and main objetive was relatevetly simple. I  am used to work with context, flux , hooks and compound component  as design patterns but I could just use hooks and compound component .
 
-I also want to underline that i decided to use next since i feel really comftable using next and algo using Css modules.
+I also want to underline that i decided to use next since I feel really comftable using next and algo using Css modules.
 
 My main personal objetive was to create small components, handleling the bussiness data on separated hooks if required, following the Single responsability . I have also used the open-close principle to create the modal with compound component .
 
