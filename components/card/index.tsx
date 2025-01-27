@@ -1,4 +1,4 @@
-import {  useMemo, useRef, useState } from "react";
+import {  useMemo, useState } from "react";
 // Third party
 import Image from "next/image";
 // CustomComponents
@@ -22,15 +22,14 @@ const UserCard = ({
   onEdit: (data: IPatients) => void;
 }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const [isImageError, setIsImageError] = useState(null)
+  const [isImageError, setIsImageError] = useState({error :false , url: null})
 
-  const initialImageUrlWithError = useRef(null)
 
   const handledImageSrc = useMemo(() => {
-    if(!isImageError){
+    if(!isImageError.error){
       return user.avatar
     }
-    if (user.avatar !== initialImageUrlWithError.current && isImageError) {
+    if (user.avatar !==  isImageError?.url) {
       return user.avatar;
     }
     return defaultUser.src;
@@ -45,8 +44,11 @@ const UserCard = ({
           alt="user avatar"
           src={handledImageSrc}
           onError={() => {
-            setIsImageError(true)
-            initialImageUrlWithError.current =user.avatar
+            setIsImageError({error : true , url : user.avatar})
+          }}
+          onLoad={()=>{
+            setIsImageError({error : false, url: null})
+
           }}
           className={styles.card_avatar}
           height={50}
