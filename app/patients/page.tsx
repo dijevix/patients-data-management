@@ -1,33 +1,39 @@
 "use client";
 import UserCard from "@/components/card";
-import { IPatients } from "@/types/patients";
-import { getUsersList } from "@/utils/services/patients";
-import { useEffect, useState } from "react";
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
+import Modal from "@/components/common/divider/modal";
+import PatientsForm from "@/components/forms/patients";
+import { usePatients } from "@/hooks/patients";
+import Divider from "@/components/common/divider";
 
 const Patients = () => {
-  const [users, setUsers] = useState<IPatients[]>([]);
-
-  const getAndSetUsers = async () => {
-    const data = await getUsersList();
-    const mappedData = data.map((user) => ({
-      ...user,
-      uuid: Math.floor(new Date().valueOf() / Math.random() / 100),
-    }));
-    console.log({ mappedData });
-    setUsers(mappedData);
-  };
-  useEffect(() => {
-    getAndSetUsers();
-  }, []);
+  
+  const {activeCard , isOpenModal , handleOnEdit , onInvalid , onValidForm , users , closeModal}  = usePatients()
 
   return (
-    <div className={styles.cardsContainer}>
-      {users.map((user) => {
-        return <UserCard {...user} key={user.uuid} />;
-      })}
-    </div>
+    <>
+      <Modal isOpen={isOpenModal} onClose={closeModal}>
+        <Modal.title>Manage Patient Information</Modal.title>
+        <Divider />
+        <Modal.content>
+          <PatientsForm
+            initialValues={{
+              ...activeCard,
+            }}
+            onCancel={closeModal}
+            onValid={onValidForm}
+            onInValid={onInvalid}
+          />
+        </Modal.content>
+      </Modal>
+
+      <div className={styles.cardsContainer}>
+        {users.map((user) => {
+          return <UserCard user={user} onEdit={handleOnEdit} key={user.uuid} />;
+        })}
+      </div>
+    </>
   );
 };
 

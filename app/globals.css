@@ -9,3 +9,10 @@ h1,h2,h3, p {
     padding : 0px
 }
 
+input {
+    outline: none;
+}
+
+button {
+    border:none
+}

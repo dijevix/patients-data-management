@@ -1,0 +1,47 @@
+.modal_container {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 16px;
+  min-width: 200px;
+  max-width: 400px;
+  border-radius: 10px;
+  row-gap: 8px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal_title {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.modal_content_custom {
+  width: 100%;
+}
+
+.modal_cancelContainer {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  transition: ease-in-out .4s all;
+}
+.modal_cancelContainer :hover {
+opacity: 0.5
+}

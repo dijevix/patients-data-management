@@ -1,6 +1,6 @@
 .card_container {
   padding: 16px 8px;
-  box-shadow: 7px 8px 0px  rgba(0, 0, 0, 0.1);
+  box-shadow: 7px 8px 0px rgba(0, 0, 0, 0.1);
   border-top: 2px solid #0044dd;
   border-left: 2px solid #0044dd;
   row-gap: 10px;
@@ -10,20 +10,17 @@
   background-color: #fff;
   position: relative;
   height: max-content;
-  transition: all ease-in-out .2s ;
+  transition: all ease-in-out 0.2s;
   cursor: pointer;
 }
 
-.card_container:hover{
+.card_container:hover {
   box-shadow: 7px 8px 5px rgba(0, 0, 0, 0.2);
-
 }
 
 .card_avatar {
   border-radius: 15px;
   object-fit: cover;
-  height: 100px;
-  width: 100px;
 }
 
 .card_header {
@@ -44,12 +41,15 @@
   line-height: 20px;
   font-size: 16px;
   margin-top: 10px;
+  border-bottom:1px solid #0044dd ;
 }
 .card_date_title {
   font-weight: 300;
+  font-size: 14px;
 }
 .card_date_date {
   font-weight: 400;
+  font-size: 14px;
 }
 
 .card_pencil {
@@ -86,4 +86,5 @@
 .subtitle {
   font-weight: 400;
   font-size: 14px;
+  margin-top: 10px;
 }
