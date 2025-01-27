@@ -14,7 +14,7 @@ import styles from "./styles.module.css";
 
 const Patients = () => {
   
-  const {activeCard , isOpenModal , handleOnEdit , onValidForm , users , closeModal }  = usePatients()
+  const {activeCard , isOpenModal , handleOnEdit , onValidForm , users , closeModal  }  = usePatients()
 
   return (
     <>

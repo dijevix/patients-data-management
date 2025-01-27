@@ -22,7 +22,6 @@ export const usePatients = () => {
   };
 
   const onValidForm = (data: IPatients ) => {
-    console.log({ data });
     setUsers((prevState) => {
       return prevState.map((item) => {
         return item.uuid == data.uuid ? { ...data } : item;

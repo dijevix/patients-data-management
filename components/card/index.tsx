@@ -1,4 +1,4 @@
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 // Third party
 import Image from "next/image";
 // CustomComponents
@@ -22,17 +22,16 @@ const UserCard = ({
   onEdit: (data: IPatients) => void;
 }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const [imageSrc, setImageSrc] = useState(user?.avatar || defaultUser.src);
+  const [imageSrc, setImageSrc] = useState(user?.avatar);
 
-  // TODO : REMOVE USEEFFECT
   useEffect(() => {
     setImageSrc(user?.avatar);
-  }, [user]);
-
+  }, [user.avatar]);
 
   return (
-    <div  className={styles.card_container}>
+    <div className={styles.card_container}>
       <div className={styles.card_header}>
+
         <Image
           alt="user avatar"
           src={imageSrc}
@@ -42,6 +41,8 @@ const UserCard = ({
           className={styles.card_avatar}
           height={50}
           width={50}
+          
+          
         />
 
         <h3 className={styles.card_title}>{user.name}</h3>
@@ -76,7 +77,9 @@ const UserCard = ({
       >
         <h3 className={styles.subtitle}>Description</h3>
         <Divider />
-        <p className={`${styles.card_description_content} ${showDescription}`}>{user.description}</p>
+        <p className={`${styles.card_description_content} ${showDescription}`}>
+          {user.description}
+        </p>
         <h3 className={styles.subtitle}>Website</h3>
         <Divider />
         <div>

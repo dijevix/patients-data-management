@@ -8,9 +8,9 @@ interface TextArea
   error?: boolean;
 }
 
-const TextArea = (props: TextArea) => {
+const TextArea = ({error, ...props}: TextArea) => {
   return (
-  <div className={`${styles.input_container} ${props?.error && styles.input_container_error}`}>
+  <div className={`${styles.input_container} ${error && styles.input_container_error}`}>
     <textarea className={styles.textarea_container} {...props} />
   </div> )
 };

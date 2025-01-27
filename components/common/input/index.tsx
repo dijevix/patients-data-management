@@ -12,9 +12,9 @@ type Props = {
   type ?: InputHTMLAttributes<HTMLInputElement>['type']
 };
 
-const CustomInput = (props: Props) => {
+const CustomInput = ({error, ...props }: Props) => {
   return (
-    <div className={`${styles.input_container} ${props?.error && styles.input_container_error}`}>
+    <div className={`${styles.input_container} ${error && styles.input_container_error}`}>
       <input  {...props} />
     </div>
   );

@@ -57,7 +57,7 @@ const PatientsForm = ({
         render={({ field, fieldState: { error } }) => {
           return (
             <>
-              <TextArea {...field} placeholder="Type a description" />
+              <TextArea {...field}error={!!error} placeholder="Type a description" />
               <HelperText>{error?.message}</HelperText>
             </>
           );
