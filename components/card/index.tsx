@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useMemo, useRef, useState } from "react";
 // Third party
 import Image from "next/image";
 // CustomComponents
@@ -22,11 +22,20 @@ const UserCard = ({
   onEdit: (data: IPatients) => void;
 }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const [imageSrc, setImageSrc] = useState(user?.avatar);
+  const [isImageError, setIsImageError] = useState(null)
 
-  useEffect(() => {
-    setImageSrc(user?.avatar);
-  }, [user.avatar]);
+  const initialImageUrlWithError = useRef(null)
+
+  const handledImageSrc = useMemo(() => {
+    if(!isImageError){
+      return user.avatar
+    }
+    if (user.avatar !== initialImageUrlWithError.current && isImageError) {
+      return user.avatar;
+    }
+    return defaultUser.src;
+   
+  }, [user.avatar , isImageError])
 
   return (
     <div className={styles.card_container}>
@@ -34,9 +43,10 @@ const UserCard = ({
 
         <Image
           alt="user avatar"
-          src={imageSrc}
+          src={handledImageSrc}
           onError={() => {
-            setImageSrc(defaultUser.src);
+            setIsImageError(true)
+            initialImageUrlWithError.current =user.avatar
           }}
           className={styles.card_avatar}
           height={50}
