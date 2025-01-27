@@ -1,9 +1,28 @@
-`This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Patients data management
+ <h2 >An app to get and update patients record .</h2>
+ This app was made with the purpose of complete the challenge provided by light it
+
+This project have been done with the following tools :
+
+ * React js
+ * Next js
+ * Toastify for notifications
+ * React hook form for form validations
 
 ## Getting Started
 
-First, run the development server:
+First copy this repository :
+`
+git clone https://github.com/dijevix/patients-data-management.git
+`
 
+Second, install dependencies:
+```
+npm i
+# or
+yarn 
+```
+Then you can run the server
 ```bash
 npm run dev
 # or
@@ -17,18 +36,11 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Learn More
+## Understanding my approach for the challenge .
 
-To learn more about Next.js, take a look at the following resources:
+I have been wondering about using a state management like redux, recoil , jotai, zubstan .. etc. But I have not really found any need to add complicated logics to the components and pages since, the code and main objetive was relatevetly simple. I  am used to work with context, flux , hooks and compound component  as design patterns but I could just use hooks and compound component .
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I also want to underline that i decided to use next since i feel really comftable using next and algo using Css modules.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+My main personal objetive was to create small components, handleling the bussiness data on separated hooks if required, following the Single responsability . I have also used the open-close principle to create the modal with compound component .
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-`
