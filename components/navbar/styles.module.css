@@ -1,0 +1,70 @@
+.navbar_container {
+  height: 100px;
+  margin-bottom: 24px;
+  background: "#fff";
+  margin: 0px auto 20px auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 15px 10px;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.navbar_title {
+  color: #0044df;
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 22px;
+  margin-left: 100px;
+}
+.navbar_title_container {
+  display: flex;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.navbar_invite_users {
+  background-color: #0044df;
+  padding: 15px 10px;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar_invite_users_container {
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow ease-in-out 1s;
+}
+
+.navbar_invite_users_container :hover {
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar_rightItems {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  column-gap: 24px;
+}
+
+.navbar_beltIcon {
+  cursor: pointer;
+  transition: 0.2500ms ease-in-out all;
+}
+.navbar_beltIcon {
+  opacity: 0.7;
+}
+
+.navbar_profile{
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+}
