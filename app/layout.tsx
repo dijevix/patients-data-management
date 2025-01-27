@@ -1,7 +1,7 @@
 import { Roboto } from "next/font/google";
 import { Metadata } from "next";
 import NavBar from "@/components/navbar";
-import  '@/app/globals.css'
+import "@/app/globals.css";
 import Footer from "@/components/footer";
 import styles from "./styles.module.css";
 
@@ -13,17 +13,16 @@ export const metadata: Metadata = {
   title: "Patients",
 };
 const roboto = Roboto({
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "700"],
   style: ["italic", "normal"],
 });
 const layout = ({ children }: Props) => {
-
   return (
     <html>
       <body className={roboto.className}>
         <NavBar />
         <main className={styles.main_container}>{children} </main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
