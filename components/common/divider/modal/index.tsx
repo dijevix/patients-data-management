@@ -1,15 +1,17 @@
 import CancelIcon from "@/components/icons/cancel";
 import styles from "./styles.module.css";
 
+
+interface Props {
+  children: React.ReactNode;
+  onClose: VoidFunction;
+  isOpen: boolean;
+}
 const Modal = ({
   children,
   onClose,
   isOpen,
-}: {
-  children: React.ReactNode;
-  onClose: VoidFunction;
-  isOpen: boolean;
-}) => {
+}:Props) => {
   return (
     <>
       {isOpen && (

@@ -1,12 +1,15 @@
 "use client";
+// Third party
+import {  ToastContainer } from 'react-toastify'
+// Custom Components
 import UserCard from "@/components/card";
-import styles from "./styles.module.css";
+import Divider from "@/components/common/divider";
 import Modal from "@/components/common/divider/modal";
 import PatientsForm from "@/components/forms/patients";
+// hooks
 import { usePatients } from "@/hooks/patients";
-import Divider from "@/components/common/divider";
-
-import {  ToastContainer } from 'react-toastify'
+// Styles
+import styles from "./styles.module.css";
 
 
 const Patients = () => {
