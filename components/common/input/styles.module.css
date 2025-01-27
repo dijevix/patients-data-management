@@ -10,11 +10,14 @@
   cursor: pointer;
 }
 
-.input_container_error {
-  border: solid 1px red;
-}
+
 
 .input_container input:focus,
 .input_container input:hover {
   border: 1.5px solid #0044df;
+}
+
+
+.input_container_error input{
+  border: solid 1px red !important;
 }

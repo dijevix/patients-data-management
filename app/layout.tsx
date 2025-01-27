@@ -1,9 +1,10 @@
 import { Roboto } from "next/font/google";
-import styles from "./styles.module.css";
 import { Metadata } from "next";
 import NavBar from "@/components/navbar";
 import  '@/app/globals.css'
 import Footer from "@/components/footer";
+import styles from "./styles.module.css";
+
 type Props = {
   children: React.ReactNode;
 };
@@ -16,6 +17,7 @@ const roboto = Roboto({
   style: ["italic", "normal"],
 });
 const layout = ({ children }: Props) => {
+
   return (
     <html>
       <body className={roboto.className}>

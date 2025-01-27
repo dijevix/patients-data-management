@@ -4,7 +4,7 @@ import { IPatients } from "@/types/patients";
 import styles from "./styles.module.css";
 
 import defaultUser from "@/public/user_4302027.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PencilIcon from "../icons/pencil";
 import UpArrowIcon from "../icons/upArrow";
 import Image from "next/image";
@@ -28,8 +28,11 @@ const UserCard = ({
     setImageSrc(user?.avatar);
   }, [user]);
 
+  const cardContainerRef = useRef<HTMLDivElement>(null)
+  const descriptionRef = useRef<HTMLDivElement>(null)
+
   return (
-    <div className={styles.card_container}>
+    <div ref={cardContainerRef} className={styles.card_container}>
       <div className={styles.card_header}>
         <Image
           alt="user avatar"
@@ -62,12 +65,15 @@ const UserCard = ({
         className={`${styles.card_expand} ${
           showDescription && styles.card_collapsed
         }`}
-        onClick={() => setShowDescription(!showDescription)}
+        onClick={() => {
+          setShowDescription(!showDescription)
+        }}
       >
         <UpArrowIcon />
       </div>
 
       <div
+      ref={descriptionRef}
         className={`${styles.card_description} ${
           showDescription && styles.card_description_show
         }`}

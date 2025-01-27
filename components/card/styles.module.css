@@ -72,6 +72,7 @@
 
 .card_description_show {
   height: auto;
+  /* visibility: hidden; */
 }
 
 .card_expand {

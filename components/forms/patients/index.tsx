@@ -1,7 +1,7 @@
 import CustomInput from "@/components/common/input";
 
 import styles from "./styles.module.css";
-import { Controller, FieldErrors, useForm } from "react-hook-form";
+import { Controller,  useForm } from "react-hook-form";
 import HelperText from "@/components/common/helperText";
 import UploadFile from "@/components/common/uploadFile";
 import { IPatients } from "@/types/patients";
@@ -10,21 +10,20 @@ const PatientsForm = ({
   initialValues,
   onCancel,
   onValid,
-  onInValid
 }: {
   initialValues: IPatients;
   onCancel: VoidFunction;
-  onValid: (data: IPatients) => void;
-  onInValid :( errors: FieldErrors<IPatients>)=>void
+  onValid?: (data: IPatients) => void;
 }) => {
   const { handleSubmit, control } = useForm({
     defaultValues: initialValues,
     mode: "all",
   });
 
+
   return (
     <form
-      onSubmit={handleSubmit(onValid, onInValid)}
+      onSubmit={handleSubmit(onValid)}
       className={styles.form_container}
     >
       <label className={styles.form_input_label}>Name</label>
@@ -37,7 +36,7 @@ const PatientsForm = ({
         render={({ field, fieldState: { error } }) => {
           return (
             <>
-              <CustomInput {...field} placeholder="Type a name" />
+              <CustomInput {...field} error={!!error} placeholder="Type a name" />
               <HelperText>{error?.message}</HelperText>
             </>
           );
@@ -53,7 +52,7 @@ const PatientsForm = ({
         render={({ field, fieldState: { error } }) => {
           return (
             <>
-              <CustomInput {...field} placeholder="Type a description" />
+              <CustomInput {...field} error={!!error}  placeholder="Type a description" />
               <HelperText>{error?.message}</HelperText>
             </>
           );
@@ -69,7 +68,7 @@ const PatientsForm = ({
         render={({ field, fieldState: { error } }) => {
           return (
             <>
-              <CustomInput {...field} placeholder="Type a Website" />
+              <CustomInput {...field} error={!!error}  placeholder="Type a Website" />
               <HelperText>{error?.message}</HelperText>
             </>
           );

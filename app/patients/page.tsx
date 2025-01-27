@@ -1,15 +1,17 @@
 "use client";
 import UserCard from "@/components/card";
-
 import styles from "./styles.module.css";
 import Modal from "@/components/common/divider/modal";
 import PatientsForm from "@/components/forms/patients";
 import { usePatients } from "@/hooks/patients";
 import Divider from "@/components/common/divider";
 
+import {  ToastContainer } from 'react-toastify'
+
+
 const Patients = () => {
   
-  const {activeCard , isOpenModal , handleOnEdit , onInvalid , onValidForm , users , closeModal}  = usePatients()
+  const {activeCard , isOpenModal , handleOnEdit , onValidForm , users , closeModal }  = usePatients()
 
   return (
     <>
@@ -23,7 +25,6 @@ const Patients = () => {
             }}
             onCancel={closeModal}
             onValid={onValidForm}
-            onInValid={onInvalid}
           />
         </Modal.content>
       </Modal>
@@ -33,6 +34,8 @@ const Patients = () => {
           return <UserCard user={user} onEdit={handleOnEdit} key={user.uuid} />;
         })}
       </div>
+
+      <ToastContainer />
     </>
   );
 };

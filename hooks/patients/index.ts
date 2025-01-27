@@ -1,7 +1,10 @@
-import { IPatients } from "@/types/patients";
 import { useState } from "react";
-import { FieldErrors } from "react-hook-form";
+// Third party 
+import { toast  } from 'react-toastify'
+// Utils
+import { IPatients } from "@/types/patients";
 import { usePatientsRequest } from "../services/patients";
+
 
 export const usePatients = () => {
   const { setUsers, users } = usePatientsRequest();
@@ -18,27 +21,24 @@ export const usePatients = () => {
     setIsOpenModal(false);
   };
 
-  const onValidForm = (data: IPatients) => {
+  const onValidForm = (data: IPatients ) => {
     console.log({ data });
     setUsers((prevState) => {
       return prevState.map((item) => {
         return item.uuid == data.uuid ? { ...data } : item;
       });
     });
+    toast('Successfully updated !')
     closeModal();
   };
 
-  const onInvalid = (error: FieldErrors<IPatients>) => {
-    console.log({ error });
-  };
 
   return {
     onValidForm,
-    onInvalid,
     users,
     isOpenModal,
     activeCard,
     handleOnEdit,
-    closeModal
+    closeModal,
   };
 };
